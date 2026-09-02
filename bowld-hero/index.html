@@ -125,7 +125,7 @@
            Font size derives from the word's own length (--hl-len), so HONEY and
            CHOCOLATE fill the same measure instead of one dwarfing the other. */
         .hl-back {
-            position: absolute; left: 0; width: 100%; top: 8%;
+            position: absolute; left: 0; width: 100%; top: 5%;
             z-index: 3; color: var(--ink);
             font-family: var(--font-heading); font-weight: 800;
             text-transform: uppercase; text-align: center;
@@ -134,9 +134,11 @@
             font-size: min(40vh, calc(90vw / (var(--hl-len, 6) * 0.58)));
         }
 
-        /* ===== Centre product ===== */
+        /* ===== Centre product =====
+           Sits below the stage's midline on purpose: dead centre buries the headline,
+           and the top third of the type is what makes it readable. */
         .pouch-wrap {
-            position: absolute; left: 50%; top: 50%; z-index: 4;
+            position: absolute; left: 50%; top: 65%; z-index: 4;
             transform: translate(-50%, -50%);
             opacity: 0; animation: fadeIn 1.2s ease-out 0.2s forwards;
             pointer-events: none;
@@ -146,7 +148,7 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
 
         .main-product-3d {
-            display: block; width: min(46vw, 58vh); height: 74vh;
+            display: block; width: min(42vw, 52vh); height: 66vh;
             outline: none; background: transparent;
             --progress-bar-color: transparent; --poster-color: transparent;
             animation: float 6s ease-in-out infinite;
@@ -286,8 +288,9 @@
 
         @media (max-width: 860px) {
             .frame { padding: 1rem; }
-            .hl-back { top: 4%; font-size: min(22vh, calc(94vw / (var(--hl-len, 6) * 0.58))); }
-            .main-product-3d { width: 84vw; height: 54vh; }
+            .hl-back { top: 3%; font-size: min(22vh, calc(94vw / (var(--hl-len, 6) * 0.58))); }
+            .pouch-wrap { top: 62%; }
+            .main-product-3d { width: 84vw; height: 52vh; }
             .frame-foot { flex-direction: column; align-items: center; gap: 1rem; }
             .description { display: none; }
             .foot-left { align-items: center; }
