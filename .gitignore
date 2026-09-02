@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+*.log
+
+# Raw exports live outside the repo — only the compressed .glb ships.
+*.blend
+Meshy_AI_*.glb

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOWLD Granola | Good ingredients, better mornings.</title>
+    <meta name="description" content="BOWLD Granola — crunchy clusters, real ingredients, no refined sugar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Rumani';
+            src: url('assets/fonts/Rumani.woff2') format('woff2'),
+                 url('assets/fonts/Rumani.woff') format('woff');
+            font-weight: 400 900;
+            font-display: swap;
+        }
+
+        :root {
+            --font-main: 'DM Sans', system-ui, sans-serif;
+            --font-heading: 'Rumani', 'Barlow Condensed', Impact, sans-serif;
+
+            /* All four are driven by the selected variant. Defaults = Honey Almond. */
+            --bg: #F3C24E;
+            --surface: #FFF9EC;
+            --ink: #4A2A0C;
+            --accent: #E8901F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-main);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* .muted is only ever used on display type. At 62% it clears the 3:1 large-text
+           bar but not the 4.5:1 body bar, so small copy stays full-strength ink. */
+        .muted { color: color-mix(in srgb, var(--ink) 62%, transparent); }
+
+        /* Lucide swaps <i data-lucide> for an <svg>, carrying the class across. */
+        .ic { width: 20px; height: 20px; stroke-width: 2.4; display: block; }
+        .ic-sm { width: 16px; height: 16px; stroke-width: 2.6; display: block; }
+
+        .frame {
+            position: relative; height: 100%; width: 100%;
+            display: flex; flex-direction: column;
+            padding: clamp(1.1rem, 2.6vw, 2.6rem);
+        }
+
+        /* ===== Header ===== */
+        .header {
+            position: relative; z-index: 20;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        /* The wordmark is painted through a mask rather than dropped in as an <img>,
+           so it recolours with --ink on every variant instead of staying flat black.
+           1.835 is the trimmed artwork's own aspect ratio. */
+        .logo {
+            display: block; width: clamp(96px, 9vw, 132px); aspect-ratio: 1.835;
+            background: var(--ink);
+            -webkit-mask: url('assets/logo-mask.png') center / contain no-repeat;
+                    mask: url('assets/logo-mask.png') center / contain no-repeat;
+            text-indent: -9999px; overflow: hidden; /* keep the name for screen readers */
+        }
+
+        .menu-head .logo { width: 84px; }
+
+        .header-right { display: flex; align-items: center; gap: 0.6rem; }
+
+        .pill {
+            display: flex; align-items: center; gap: 0.55rem;
+            border-radius: 100px; border: 1.5px solid transparent;
+            padding: 0.62rem 1.15rem;
+            font-family: var(--font-main); font-weight: 700;
+            font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+            cursor: pointer; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .pill:hover { transform: translateY(-2px); }
+        .pill-ghost { background: transparent; color: var(--ink); border-color: color-mix(in srgb, var(--ink) 34%, transparent); }
+        .pill-ghost:hover { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+        .pill:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+        /* ===== Stage =====
+           Layer order: sprigs 1 · bg ornaments 2 · headline 3 · pouch 4 ·
+           fg ornaments 5 · header/footer 20. The headline sits behind the pouch. */
+        .stage { position: relative; flex: 1; min-height: 0; }
+
+        .sprigs-container { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+
+        .sprig {
+            position: absolute; width: 60px; pointer-events: none;
+            filter: drop-shadow(0 6px 16px rgba(40, 24, 6, 0.14));
+        }
+
+        .l1 { top: 2%;  left: 6%;  width: 66px; opacity: 0.6; }
+        .l2 { top: 28%; left: 90%; width: 120px; opacity: 0.45; }
+        .l3 { top: 72%; left: 86%; width: 78px; opacity: 0.55; }
+        .l4 { top: 76%; left: 4%;  width: 104px; opacity: 0.4; }
+
+        .orn-container    { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+        .orn-container-bg { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+
+        .orn { position: absolute; width: 110px; filter: drop-shadow(0 10px 22px rgba(40, 24, 6, 0.2)); }
+
+        .b1 { top: 10%; left: 14%; width: 128px; }
+        .b2 { top: 68%; left: 22%; width: 88px; }
+        .b3 { top: 60%; left: 74%; width: 116px; }
+        .b4 { top: 6%;  left: 76%; width: 96px; opacity: 0.75; }
+        .b5 { top: 42%; left: 7%;  width: 76px; opacity: 0.6; }
+
+        /* ===== Headline =====
+           Centred with left/width rather than translateX(-50%): GSAP animates `y` here,
+           and it would bake the percentage centring into a stale pixel offset.
+           Font size derives from the word's own length (--hl-len), so HONEY and
+           CHOCOLATE fill the same measure instead of one dwarfing the other. */
+        .hl-back {
+            position: absolute; left: 0; width: 100%; top: 8%;
+            z-index: 3; color: var(--ink);
+            font-family: var(--font-heading); font-weight: 800;
+            text-transform: uppercase; text-align: center;
+            line-height: 0.86; letter-spacing: 0.01em;
+            white-space: nowrap; pointer-events: none;
+            font-size: min(40vh, calc(90vw / (var(--hl-len, 6) * 0.58)));
+        }
+
+        /* ===== Centre product ===== */
+        .pouch-wrap {
+            position: absolute; left: 50%; top: 50%; z-index: 4;
+            transform: translate(-50%, -50%);
+            opacity: 0; animation: fadeIn 1.2s ease-out 0.2s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+
+        .main-product-3d {
+            display: block; width: min(46vw, 58vh); height: 74vh;
+            outline: none; background: transparent;
+            --progress-bar-color: transparent; --poster-color: transparent;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: auto;
+        }
+
+        /* The inactive pouches stay mounted so model-viewer keeps them parsed and warm;
+           only visibility flips at the spin peak, which makes the swap instant. */
+        .main-product-3d.is-hidden {
+            position: absolute; inset: 0;
+            opacity: 0; pointer-events: none !important;
+        }
+
+        /* A silently blank canvas is the hardest 3D bug to spot — say so out loud. */
+        #model-error {
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+            z-index: 30; display: none; max-width: 32ch; text-align: center;
+            padding: 1.25rem 1.5rem; border-radius: 16px;
+            background: var(--surface); border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+            color: var(--ink); font-size: 0.9rem; line-height: 1.45;
+        }
+        #model-error.show { display: block; }
+        #model-error code { font-size: 0.8rem; background: color-mix(in srgb, var(--ink) 10%, transparent); padding: 1px 5px; border-radius: 4px; }
+
+        /* ===== Footer ===== */
+        .frame-foot {
+            position: relative; z-index: 20;
+            display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem;
+        }
+
+        .foot-left { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+
+        .description { font-size: 0.95rem; line-height: 1.5; max-width: 36ch; font-weight: 500; }
+
+        .primary-btn {
+            display: flex; align-items: center; gap: 1.2rem;
+            background: var(--ink); color: var(--surface); border: none;
+            padding: 0.35rem 0.35rem 0.35rem 1.4rem; border-radius: 100px;
+            font-family: var(--font-main); font-weight: 700;
+            font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+            cursor: pointer; transition: transform 0.3s ease;
+        }
+
+        .primary-btn:hover { transform: translateY(-3px); }
+        .primary-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+        .plus-icon {
+            background: var(--accent); color: var(--surface);
+            width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; flex-shrink: 0;
+        }
+
+        /* ===== Flavour picker =====
+           No card, no plinth: just the pouch with its name and price under it.
+           Selection reads through opacity and scale rather than a box. */
+        .carousel-cards { display: flex; gap: 1.6rem; align-items: flex-end; }
+
+        .card {
+            background: none; border: none; padding: 0;
+            width: 116px; cursor: pointer;
+            display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+            text-align: center; color: var(--ink); font: inherit;
+            opacity: 0.5; transition: opacity 0.4s ease;
+        }
+
+        .card:hover, .card.active { opacity: 1; }
+        .card:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
+
+        .card img {
+            width: 104px; height: auto; display: block;
+            filter: drop-shadow(0 16px 26px rgba(40, 24, 6, 0.3));
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform;
+            pointer-events: none; /* let the pointer fall through to the button */
+        }
+
+        .card.active img { transform: translateY(-6px) scale(1.06); }
+        .card:hover img, .card.active:hover img { transform: translateY(-18px) rotate(-8deg) scale(1.12); }
+
+        .card-info { display: flex; flex-direction: column; gap: 1px; width: 100%; }
+        .card-name { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; line-height: 1.25; }
+        .card-price { font-family: var(--font-heading); font-size: 1.15rem; letter-spacing: 0.02em; color: var(--accent); }
+
+        /* ===== Menu dropdown =====
+           Still a native <dialog> — focus trap, Esc-to-close and inertness come free —
+           but positioned under the button instead of centred. `margin: 0` is what
+           releases it from the viewport centring; JS supplies top/right on open. */
+        .menu-modal {
+            position: fixed; margin: 0; left: auto;
+            width: min(320px, calc(100vw - 2rem));
+            padding: 0; border: none;
+            border-radius: 22px; background: var(--surface); color: var(--ink);
+            box-shadow: 0 24px 60px rgba(40, 24, 6, 0.28);
+            transform-origin: top right;
+        }
+
+        .menu-modal::backdrop { background: color-mix(in srgb, #201308 34%, transparent); }
+
+        .menu-modal[open] { animation: modalIn 0.22s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        @keyframes modalIn { from { opacity: 0; transform: translateY(-10px) scale(0.96); } }
+
+        .menu-inner { padding: 1.1rem 1.2rem 1.2rem; }
+        .menu-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+
+        .icon-btn {
+            width: 32px; height: 32px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: transparent; border: 1.5px solid color-mix(in srgb, var(--ink) 24%, transparent);
+            color: var(--ink); cursor: pointer; transition: background 0.25s ease, color 0.25s ease;
+        }
+        .icon-btn:hover { background: var(--ink); color: var(--surface); }
+
+        .menu-links { display: flex; flex-direction: column; }
+
+        .menu-links a {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.62rem 0;
+            border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+            font-family: var(--font-heading); font-size: 1.15rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.02em;
+            color: var(--ink); text-decoration: none;
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+        .menu-links a:hover { color: var(--accent); padding-left: 0.4rem; }
+
+        .menu-flavors { display: flex; gap: 0.4rem; margin-top: 1rem; }
+
+        .menu-flavor {
+            flex: 1; padding: 0.7rem 0.5rem; border-radius: 12px;
+            border: 1.5px solid color-mix(in srgb, var(--ink) 18%, transparent);
+            background: transparent; color: var(--ink); cursor: pointer;
+            font: inherit; font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+        .menu-flavor:hover, .menu-flavor.active { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+
+        @media (max-width: 860px) {
+            .frame { padding: 1rem; }
+            .hl-back { top: 4%; font-size: min(22vh, calc(94vw / (var(--hl-len, 6) * 0.58))); }
+            .main-product-3d { width: 84vw; height: 54vh; }
+            .frame-foot { flex-direction: column; align-items: center; gap: 1rem; }
+            .description { display: none; }
+            .foot-left { align-items: center; }
+            .carousel-cards { gap: 1rem; }
+            .card { width: 86px; }
+            .card img { width: 74px; }
+            .card-name { font-size: 0.62rem; }
+            .card-price { font-size: 0.95rem; }
+            .orn { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        <header class="header">
+            <div class="logo">BOWLD</div>
+            <div class="header-right">
+                <button class="pill pill-ghost" id="menu-open" aria-haspopup="dialog">
+                    Menu <i data-lucide="menu" class="ic-sm"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="stage">
+            <div class="sprigs-container">
+                <img class="sprig l1" src="assets/ornaments/sticker-oat-sprig.webp" alt="">
+                <img class="sprig l2" src="assets/ornaments/sticker-oat-sprig.webp" alt="">
+                <img class="sprig l3" src="assets/ornaments/sticker-oat-sprig.webp" alt="">
+                <img class="sprig l4" src="assets/ornaments/sticker-oat-sprig.webp" alt="">
+            </div>
+
+            <div class="orn-container-bg">
+                <img class="orn b4" src="assets/ornaments/sticker-berries.webp" alt="">
+                <img class="orn b5" src="assets/ornaments/sticker-cluster.webp" alt="">
+            </div>
+
+            <h1 class="hl-back" id="hl-top">Honey Almond</h1>
+
+            <div class="pouch-wrap">
+                <model-viewer class="main-product-3d" data-flavor="honey"
+                    src="assets/honey-almond.glb"
+                    alt="BOWLD Honey Almond granola pouch, rotatable"
+                    camera-controls disable-zoom disable-tap
+                    camera-orbit="0deg 84deg 150%" field-of-view="auto"
+                    min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 180deg auto"
+                    shadow-intensity="1.1" shadow-softness="0.9"
+                    exposure="1.15" environment-image="neutral"
+                    interaction-prompt="none" loading="eager"></model-viewer>
+
+                <model-viewer class="main-product-3d is-hidden" data-flavor="chocolate"
+                    alt="BOWLD Chocolate Crunch granola pouch, rotatable"
+                    camera-controls disable-zoom disable-tap
+                    camera-orbit="0deg 84deg 150%" field-of-view="auto"
+                    min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 180deg auto"
+                    shadow-intensity="1.1" shadow-softness="0.9"
+                    exposure="1.15" environment-image="neutral"
+                    interaction-prompt="none"></model-viewer>
+
+                <model-viewer class="main-product-3d is-hidden" data-flavor="matcha"
+                    alt="BOWLD Matcha Vanilla granola pouch, rotatable"
+                    camera-controls disable-zoom disable-tap
+                    camera-orbit="0deg 84deg 150%" field-of-view="auto"
+                    min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 180deg auto"
+                    shadow-intensity="1.1" shadow-softness="0.9"
+                    exposure="1.15" environment-image="neutral"
+                    interaction-prompt="none"></model-viewer>
+            </div>
+
+            <div id="model-error" role="status">
+                <strong>3D pouch didn’t load.</strong><br>
+                This page needs to be served over http. Locally, run
+                <code>npx serve</code> in the repo root and open
+                <code>/bowld-hero/</code> — opening the file directly with
+                <code>file://</code> blocks the model fetch.
+            </div>
+
+            <div class="orn-container">
+                <img class="orn b1" src="assets/ornaments/sticker-cluster.webp" alt="">
+                <img class="orn b2" src="assets/ornaments/sticker-honey-dipper.webp" alt="">
+                <img class="orn b3" src="assets/ornaments/sticker-sun-bowl.webp" alt="">
+            </div>
+        </div>
+
+        <footer class="frame-foot">
+            <div class="foot-left">
+                <p class="description" id="hl-desc">
+                    Rolled oats and toasted almonds bound with real honey,
+                    then folded through cranberries and pumpkin seeds.
+                </p>
+                <button class="primary-btn">
+                    Shop the pouch
+                    <span class="plus-icon"><i data-lucide="plus" class="ic"></i></span>
+                </button>
+            </div>
+
+            <div class="carousel-cards">
+                <button class="card active" data-flavor="honey">
+                    <img src="assets/cards/honey-almond.webp" alt="BOWLD Honey Almond granola pouch">
+                    <span class="card-info">
+                        <span class="card-name">Honey Almond</span>
+                        <span class="card-price">$8.00</span>
+                    </span>
+                </button>
+                <button class="card" data-flavor="chocolate">
+                    <img src="assets/cards/chocolate.webp" alt="BOWLD Chocolate Crunch granola pouch">
+                    <span class="card-info">
+                        <span class="card-name">Chocolate Crunch</span>
+                        <span class="card-price">$8.00</span>
+                    </span>
+                </button>
+                <button class="card" data-flavor="matcha">
+                    <img src="assets/cards/matcha.webp" alt="BOWLD Matcha Vanilla granola pouch">
+                    <span class="card-info">
+                        <span class="card-name">Matcha Vanilla</span>
+                        <span class="card-price">$8.50</span>
+                    </span>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <dialog class="menu-modal" id="menu-modal" aria-label="Main menu">
+        <div class="menu-inner">
+            <div class="menu-head">
+                <span class="logo">BOWLD</span>
+                <button class="icon-btn" id="menu-close" aria-label="Close menu"><i data-lucide="x" class="ic"></i></button>
+            </div>
+            <nav class="menu-links">
+                <a href="#">Home <i data-lucide="arrow-up-right" class="ic-sm"></i></a>
+                <a href="#">Granola <i data-lucide="arrow-up-right" class="ic-sm"></i></a>
+                <a href="#">Ingredients <i data-lucide="arrow-up-right" class="ic-sm"></i></a>
+                <a href="#">Journal <i data-lucide="arrow-up-right" class="ic-sm"></i></a>
+                <a href="#">Stockists <i data-lucide="arrow-up-right" class="ic-sm"></i></a>
+            </nav>
+            <div class="menu-flavors">
+                <button class="menu-flavor active" data-flavor="honey">Honey</button>
+                <button class="menu-flavor" data-flavor="chocolate">Chocolate</button>
+                <button class="menu-flavor" data-flavor="matcha">Matcha</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        const A = 'assets/';
+        const root = document.documentElement;
+        const modelError = document.querySelector('#model-error');
+
+        // Solid ground per variant, lifted off the pouch art. `ink` moves with it or the
+        // copy loses contrast on chocolate; `surface` is the light side of every control.
+        const FLAVORS = {
+            honey: {
+                bg: '#F3C24E', surface: '#FFF9EC', ink: '#4A2A0C', accent: '#E8901F',
+                title: 'Honey Almond', glb: 'honey-almond.glb',
+                desc: 'Rolled oats and toasted almonds bound with real honey, then folded through cranberries and pumpkin seeds.',
+                orn: ['sticker-honey-dipper.webp', 'sticker-cluster.webp', 'sticker-oat-sprig.webp']
+            },
+            chocolate: {
+                bg: '#C89A6B', surface: '#FBF3E6', ink: '#3B1D13', accent: '#8C4A2A',
+                title: 'Chocolate Crunch', glb: 'chocolate.glb',
+                desc: 'Oats, almonds and cashews baked into dark cocoa clusters. Crunch first, sweetness a long way second.',
+                orn: ['sticker-cluster.webp', 'sticker-berries.webp', 'sticker-oat-sprig.webp']
+            },
+            matcha: {
+                bg: '#AFC97A', surface: '#F7FAEC', ink: '#2A4416', accent: '#5F8438',
+                title: 'Matcha Vanilla', glb: 'matcha.glb',
+                desc: 'Stone-ground matcha and vanilla over oats, white chocolate, cranberries and pumpkin seeds.',
+                orn: ['sticker-oat-sprig.webp', 'sticker-sun-bowl.webp', 'sticker-cluster.webp']
+            }
+        };
+
+        const ORDER = ['honey', 'chocolate', 'matcha'];
+
+        const hlTop = document.querySelector('#hl-top');
+        const hlDesc = document.querySelector('#hl-desc');
+        const copyEls = [hlTop, hlDesc];
+
+        const viewers = {};
+        document.querySelectorAll('.main-product-3d').forEach(v => viewers[v.dataset.flavor] = v);
+        const allViewers = Object.values(viewers);
+
+        const sprigsBG = document.querySelector('.sprigs-container');
+        const sprigs = [...document.querySelectorAll('.sprig')];
+        const ornFG = document.querySelector('.orn-container');
+        const ornBG = document.querySelector('.orn-container-bg');
+        const allOrn = [...document.querySelectorAll('.orn')];
+        const cards = [...document.querySelectorAll('.card')];
+        const menuFlavors = [...document.querySelectorAll('.menu-flavor')];
+        let isSwitching = false;
+        let switchSpin = 0;
+        let activeFlavor = 'honey';
+
+        lucide.createIcons();
+
+        /* ---- Menu modal ---- */
+        const modal = document.querySelector('#menu-modal');
+        const menuBtn = document.querySelector('#menu-open');
+
+        // Anchor the dropdown to the button on every open — cheaper and more reliable
+        // than hard-coding an offset that has to track the header's fluid padding.
+        menuBtn.addEventListener('click', () => {
+            const r = menuBtn.getBoundingClientRect();
+            modal.style.top = `${r.bottom + 10}px`;
+            modal.style.right = `${window.innerWidth - r.right}px`;
+            modal.showModal();
+        });
+        document.querySelector('#menu-close').addEventListener('click', () => modal.close());
+        // Click outside the panel closes it; <dialog> reports those as clicks on itself.
+        modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+        menuFlavors.forEach(b => b.addEventListener('click', () => {
+            selectFlavor(b.dataset.flavor);
+            modal.close();
+        }));
+
+        /* ---- Models ----
+           `src` is a model-viewer property that does not reflect to the attribute, so
+           arming is tracked here rather than probed off the DOM. The other two pouches
+           load only once the first is up, so they never compete for its bandwidth. */
+        const armed = new Set(['honey']);
+
+        function arm(flavor) {
+            if (armed.has(flavor)) return;
+            armed.add(flavor);
+            viewers[flavor].src = A + FLAVORS[flavor].glb;
+        }
+
+        viewers.honey.addEventListener('load', () => {
+            modelError.classList.remove('show');
+            ORDER.slice(1).forEach(arm);
+        }, { once: true });
+
+        viewers.honey.addEventListener('error', () => modelError.classList.add('show'));
+        // A blocked file:// fetch never fires `error` on model-viewer, so time it out too.
+        setTimeout(() => { if (!viewers.honey.loaded) modelError.classList.add('show'); }, 10000);
+
+        /* ---- Flavour switching ---- */
+        cards.forEach(card => card.addEventListener('click', () => selectFlavor(card.dataset.flavor)));
+
+        function setHeadlineLength(cfg) {
+            // Spaces barely occupy width in this face; count them at a third.
+            const len = cfg.title.replace(/ /g, '').length + (cfg.title.split(' ').length - 1) * 0.4;
+            root.style.setProperty('--hl-len', len.toFixed(1));
+        }
+        setHeadlineLength(FLAVORS.honey);
+
+        function selectFlavor(flavor) {
+            if (isSwitching || !FLAVORS[flavor] || flavor === activeFlavor) return;
+            activeFlavor = flavor;
+            cards.forEach(c => c.classList.toggle('active', c.dataset.flavor === flavor));
+            menuFlavors.forEach(b => b.classList.toggle('active', b.dataset.flavor === flavor));
+            switchFlavor(flavor);
+        }
+
+        function switchFlavor(flavor) {
+            isSwitching = true;
+            const cfg = FLAVORS[flavor];
+            arm(flavor);
+
+            gsap.to(root, {
+                '--bg': cfg.bg, '--surface': cfg.surface, '--ink': cfg.ink, '--accent': cfg.accent,
+                duration: 1.2, ease: 'power2.inOut'
+            });
+
+            // Copy crossfades at the spin peak so the words land with the new pouch.
+            gsap.timeline()
+                .to(copyEls, { opacity: 0, y: 14, duration: 0.35, ease: 'power2.in' })
+                .add(() => {
+                    hlTop.textContent = cfg.title;
+                    hlDesc.textContent = cfg.desc;
+                    setHeadlineLength(cfg);
+                })
+                .to(copyEls, { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' });
+
+            // Pouch spin + blur; the model swap happens at the peak, hidden by the blur.
+            const spinObj = { val: 0, blur: 0 };
+            gsap.to(spinObj, {
+                val: 360, blur: 12, duration: 0.6, ease: 'power2.in',
+                onUpdate: () => { switchSpin = spinObj.val; allViewers.forEach(v => v.style.filter = `blur(${spinObj.blur}px)`); },
+                onComplete: () => {
+                    allViewers.forEach(v => v.classList.toggle('is-hidden', v.dataset.flavor !== flavor));
+                    gsap.to(spinObj, {
+                        val: 720, blur: 0, duration: 1.5, ease: 'back.out(0.7)',
+                        onUpdate: () => { switchSpin = spinObj.val; allViewers.forEach(v => v.style.filter = `blur(${spinObj.blur}px)`); },
+                        onComplete: () => {
+                            switchSpin = 0;
+                            allViewers.forEach(v => v.style.filter = 'none');
+                        }
+                    });
+                }
+            });
+
+            // Ornaments collapse to centre, change sticker, scatter back out.
+            let done = 0;
+            const stage = document.querySelector('.stage').getBoundingClientRect();
+            allOrn.forEach((orn, i) => {
+                const cx = stage.width / 2 - orn.offsetLeft - orn.offsetWidth / 2;
+                const cy = stage.height / 2 - orn.offsetTop - orn.offsetHeight / 2;
+                const startAngle = parseFloat(orn.dataset.angle) || 0;
+                const nextX = (Math.random() - 0.5) * 160;
+                const nextY = (Math.random() - 0.5) * 160;
+
+                gsap.set(orn, {
+                    rotation: startAngle,
+                    x: parseFloat(orn.dataset.baseX) || 0,
+                    y: parseFloat(orn.dataset.baseY) || 0
+                });
+
+                gsap.timeline()
+                    .to(orn, {
+                        x: cx, y: cy, rotation: startAngle + 45, scale: 0.1, opacity: 0,
+                        duration: 0.5, ease: 'power2.in',
+                        onComplete: () => { orn.src = A + 'ornaments/' + cfg.orn[i % cfg.orn.length]; }
+                    })
+                    .to(orn, { duration: 0.3 })
+                    .to(orn, {
+                        x: nextX, y: nextY, rotation: startAngle + 90, scale: 1, opacity: 1,
+                        duration: 0.9, ease: 'back.out(1.5)',
+                        onComplete: () => {
+                            orn.dataset.angle = startAngle + 90;
+                            orn.dataset.baseX = nextX; orn.dataset.baseY = nextY;
+                            orn.dataset.rx = 0; orn.dataset.ry = 0;
+                            if (++done === allOrn.length) isSwitching = false;
+                        }
+                    });
+            });
+        }
+
+        allOrn.forEach(o => {
+            o.dataset.rx = 0; o.dataset.ry = 0; o.dataset.angle = Math.random() * 360;
+            o.dataset.baseX = 0; o.dataset.baseY = 0;
+        });
+
+        let mouse = { x: 0, y: 0, px: 0, py: 0 };
+        let currentMouse = { x: 0, y: 0 };
+
+        window.addEventListener('mousemove', e => {
+            mouse.x = (e.clientX / window.innerWidth) - 0.5;
+            mouse.y = (e.clientY / window.innerHeight) - 0.5;
+            mouse.px = e.clientX; mouse.py = e.clientY;
+        });
+
+        function animate() {
+            const time = Date.now() * 0.001;
+            currentMouse.x += (mouse.x - currentMouse.x) * 0.05;
+            currentMouse.y += (mouse.y - currentMouse.y) * 0.05;
+
+            // Every pouch tracks the pointer, so the hidden one is already at the right
+            // angle the instant it is revealed.
+            const orbit = `${(currentMouse.x * 40) + switchSpin}deg ${84 + (currentMouse.y * 18)}deg 150%`;
+            allViewers.forEach(v => v.cameraOrbit = orbit);
+
+            ornFG.style.transform    = `translate(${currentMouse.x * 46}px, ${currentMouse.y * 46}px)`;
+            ornBG.style.transform    = `translate(${currentMouse.x * -24}px, ${currentMouse.y * -24}px)`;
+            sprigsBG.style.transform = `translate(${currentMouse.x * -12}px, ${currentMouse.y * -12}px)`;
+
+            if (!isSwitching) {
+                allOrn.forEach((orn, i) => {
+                    const r = orn.getBoundingClientRect();
+                    const dx = mouse.px - (r.left + r.width / 2);
+                    const dy = mouse.py - (r.top + r.height / 2);
+                    const dist = Math.hypot(dx, dy) || 1;
+
+                    let targetRx = 0, targetRy = 0, speedMult = 1;
+                    if (dist < 340) {
+                        const force = (340 - dist) / 340;
+                        targetRx = (dx / dist) * force * -70;
+                        targetRy = (dy / dist) * force * -70;
+                        speedMult = 1 + force * 5;
+                    }
+
+                    let rx = parseFloat(orn.dataset.rx) || 0;
+                    let ry = parseFloat(orn.dataset.ry) || 0;
+                    let angle = parseFloat(orn.dataset.angle) || 0;
+                    const baseX = parseFloat(orn.dataset.baseX) || 0;
+                    const baseY = parseFloat(orn.dataset.baseY) || 0;
+
+                    rx += (targetRx - rx) * 0.1;
+                    ry += (targetRy - ry) * 0.1;
+                    angle += 0.2 * speedMult;
+
+                    orn.dataset.rx = rx; orn.dataset.ry = ry; orn.dataset.angle = angle;
+
+                    const dur = [5, 7, 6, 8, 5.5][i % 5];
+                    const phase = (time + i * 0.7) * (Math.PI * 2 / dur);
+                    orn.style.transform =
+                        `translate(${rx + baseX}px, calc(${ry + baseY}px + ${Math.sin(phase) * 13}px)) rotate(calc(${angle}deg + ${Math.cos(phase) * 6}deg))`;
+                });
+            }
+
+            sprigs.forEach((s, i) => {
+                const dur = 10 + i * 2;
+                const phase = (time + i * 1.2) * (Math.PI * 2 / dur);
+                s.style.transform =
+                    `translate(${Math.cos(phase * 0.5) * 13}px, ${Math.sin(phase) * 17}px) rotate(${Math.sin(phase * 0.3) * 15}deg)`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>

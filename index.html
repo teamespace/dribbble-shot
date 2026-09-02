@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elx.onl — shots</title>
+    <meta name="description" content="Interface and product shots by Elux Space.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0F0E0D;
+            --ink: #F4F1EA;
+            --dim: #8C857A;
+            --line: #262320;
+            --accent: #F26B2E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg); color: var(--ink);
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 16px; line-height: 1.5;
+            min-height: 100vh; display: flex; flex-direction: column;
+            padding: clamp(1.5rem, 5vw, 4rem);
+        }
+
+        header { margin-bottom: clamp(3rem, 9vw, 7rem); }
+
+        .mark {
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+        }
+
+        h1 {
+            margin-top: 1.1rem; max-width: 18ch;
+            font-size: clamp(2.4rem, 6vw, 4.6rem); font-weight: 700;
+            line-height: 1.02; letter-spacing: -0.035em;
+        }
+
+        h1 span { color: var(--dim); }
+
+        .lede { margin-top: 1.2rem; max-width: 46ch; color: var(--dim); }
+
+        .shots { list-style: none; border-top: 1px solid var(--line); }
+
+        .shots a {
+            display: grid; grid-template-columns: 4ch 1fr auto; align-items: baseline;
+            gap: clamp(1rem, 4vw, 3rem);
+            padding: clamp(1.2rem, 3vw, 2rem) 0;
+            border-bottom: 1px solid var(--line);
+            color: inherit; text-decoration: none;
+            transition: padding-left 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s ease;
+        }
+
+        .shots a:hover, .shots a:focus-visible { padding-left: 0.75rem; color: var(--accent); }
+        .shots a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+        .num { font-size: 0.78rem; font-weight: 700; color: var(--dim); letter-spacing: 0.08em; }
+        .shots a:hover .num { color: var(--accent); }
+
+        .title { font-size: clamp(1.3rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; }
+        .desc { margin-top: 0.3rem; font-size: 0.9rem; color: var(--dim); max-width: 52ch; }
+        .shots a:hover .desc { color: var(--dim); }
+
+        .meta { font-size: 0.75rem; color: var(--dim); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+
+        footer {
+            margin-top: auto; padding-top: clamp(3rem, 8vw, 6rem);
+            display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+            font-size: 0.78rem; color: var(--dim);
+        }
+
+        footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--line); }
+        footer a:hover { color: var(--accent); border-color: var(--accent); }
+
+        @media (max-width: 620px) {
+            .shots a { grid-template-columns: 1fr; gap: 0.4rem; }
+            .meta { order: -1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p class="mark">elx.onl</p>
+        <h1>Shots.<br><span>Built, not mocked.</span></h1>
+        <p class="lede">
+            Interface work shipped as real, running pages — 3D, motion and all.
+            Every shot lives at its own path.
+        </p>
+    </header>
+
+    <main>
+        <ol class="shots">
+            <li>
+                <a href="/bowld-hero/">
+                    <span class="num">01</span>
+                    <span>
+                        <span class="title">BOWLD Granola</span>
+                        <span class="desc">Product hero with three swappable pouches in WebGL, palette and copy driven by the selected variant.</span>
+                    </span>
+                    <span class="meta">3D · Hero</span>
+                </a>
+            </li>
+        </ol>
+    </main>
+
+    <footer>
+        <span>Elux Space</span>
+        <span><a href="https://dribbble.com/">Dribbble</a></span>
+    </footer>
+</body>
+
+</html>

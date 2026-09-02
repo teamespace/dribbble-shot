@@ -1,0 +1,19 @@
+# Cloudflare Pages headers.
+# Hashed-by-content these are not, so HTML stays revalidated and heavy static
+# assets get a long cache — a shot's assets change only when its folder does.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pages does not know this extension; without it .glb is served as
+# application/octet-stream, which works but skips compression negotiation.
+/*.glb
+  Content-Type: model/gltf-binary
+  Cache-Control: public, max-age=31536000, immutable
