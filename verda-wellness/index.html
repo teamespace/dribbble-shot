@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verda &mdash; Your health, measured properly.</title>
+<meta name="description" content="Verda is a members' clinic: one clinician, a full panel twice a year, and follow-through between visits.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Archivo:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<style>
+
+    body { margin: 0; background: #1B2836; }
+    * { box-sizing: border-box; }
+    a { color: #1B2836; text-decoration: none; }
+    a:hover { color: #33689E; }
+    .ser { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; }
+    .mono { font-family: 'Space Mono', ui-monospace, Menlo, monospace; }
+    .lbl { font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .ph { position: relative; overflow: hidden; background: linear-gradient(152deg, #BFCEDA 0%, #E4DFD3 48%, #A8BAC8 100%); }
+    .ph::before { content: ''; position: absolute; inset: 0; background:
+        radial-gradient(115% 85% at 20% 12%, rgba(255,255,255,0.46), rgba(255,255,255,0) 62%),
+        radial-gradient(85% 75% at 82% 88%, rgba(20,32,44,0.34), rgba(20,32,44,0) 66%); }
+    .ph::after { content: attr(data-label); position: absolute; left: 12px; bottom: 10px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+    .ph-b { background: linear-gradient(152deg, #D9D3C4 0%, #C3C9C6 50%, #93A7B6 100%); }
+    .ph-c { background: linear-gradient(152deg, #A9BCCB 0%, #D3D6D0 52%, #DED7C6 100%); }
+    .ph-d { background: linear-gradient(152deg, #8FA3B4 0%, #BCC5C6 48%, #E2DACA 100%); }
+    .navlink:hover { opacity: 0.55; }
+
+    .marquee-track { display: flex; width: max-content; will-change: transform; }
+    .marquee-item { white-space: nowrap; flex-shrink: 0; }
+    .card-track { display: flex; width: max-content; will-change: transform; }
+    @keyframes marquee-loop-4 { from { transform: translateX(0); } to { transform: translateX(-25%); } }
+    @keyframes marquee-loop-3 { from { transform: translateX(0); } to { transform: translateX(-33.3333%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track, .card-track { animation: none !important; }
+      .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+    .pill:hover { background: rgba(51,104,158,0.10); }
+    .faqrow:hover .faqq { opacity: 0.55; }
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 1.15s cubic-bezier(.16,.84,.44,1), transform 1.15s cubic-bezier(.16,.84,.44,1); }
+    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+    .cta-btn-primary, .cta-btn-secondary { transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
+    .cta-btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 28px rgba(0,0,0,0.22); }
+    .cta-btn-secondary:hover { transform: translateY(-3px) scale(1.03); background: rgba(241,238,230,0.12); }
+  
+
+    .desktop-view { display: block; }
+    .mobile-view { display: none; }
+    @media (max-width: 900px) {
+      .desktop-view { display: none; }
+      .mobile-view { display: block; }
+    }
+    .faq-q { cursor: pointer; }
+  
+</style>
+</head>
+<body>
+<div class="desktop-view">
+<div id="page" data-name="Page" style="width: 100%; background: #F1EEE6; color: #1B2836; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;">
+
+  <!-- ======================================================== 01 · NAV -->
+  <header id="s1-nav" data-name="01 Nav" class="fade-up" style="display: flex; align-items: center; justify-content: space-between; padding: 20px 40px;">
+    <div id="s1-nav-mark" data-name="Wordmark" style="display: flex; align-items: center; gap: 11px;">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#1B2836" stroke-width="1.2"></circle>
+        <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#1B2836" stroke-width="1.2"></path>
+      </svg>
+      <span class="ser" style="font-size: 20px; letter-spacing: 0.38em;">VERDA</span>
+    </div>
+    <nav id="s1-nav-links" data-name="Nav links" style="display: flex; align-items: center; gap: 32px;">
+      <a class="lbl navlink" href="#">Panel</a>
+      <a class="lbl navlink" href="#">Approach</a>
+      <a class="lbl navlink" href="#">Membership</a>
+      <a class="lbl navlink" href="#">Journal</a>
+    </nav>
+    <a id="s1-nav-cta" data-name="Nav CTA" class="lbl" href="#" style="display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 13px 24px; background: #33689E; color: #F1EEE6;">Start with a call <span style="font-size: 11px;">↗</span></a>
+  </header>
+
+  <!-- ======================================================== 01 · HERO -->
+  <section id="s1-hero" data-name="01 Hero" style="position: relative; padding: 58px 40px 0;">
+
+    
+
+    <div id="s1-hero-copy" data-name="Hero copy" class="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 720px; margin: 0 auto;">
+      <h1 class="ser" style="margin: 0; text-align: center; font-size: 82px; line-height: 1.02; letter-spacing: -0.022em; font-weight: 400;">Your health,<br><em style="color: #33689E;">measured properly.</em></h1>
+      <p style="margin: 0; max-width: 460px; text-align: center; font-size: 15px; line-height: 1.62; color: rgba(27,40,54,0.74);">One clinic, one clinician, and a full panel twice a year — read by someone who remembers your last one. Membership is $100 a year.</p>
+      <div id="s1-hero-actions" data-name="Hero actions" style="display: flex; align-items: center; gap: 22px; padding-top: 4px;">
+        <a class="lbl" href="#" style="display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 16px 30px; background: #1B2836; color: #F1EEE6;">Start with a call <span style="font-size: 11px;">↗</span></a>
+        <a class="lbl" href="#" style="border-bottom: 1px solid rgba(27,40,54,0.4); padding-bottom: 3px;">See what we measure</a>
+      </div>
+    </div>
+
+    <div id="s1-hero-cards" data-name="Hero card strip" style="overflow: hidden; width: auto; margin: 0 -40px; padding-top: 62px;">
+      <div class="card-track" style="animation: marquee-loop-3 60s linear infinite;">
+      <div data-name="Card · Thyroid" class="fade-up" style="transition-delay: 0ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Thyroid · TSH</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">1.8</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">mIU/L</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 26%; width: 42%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-name="Card · Metabolic" class="fade-up" style="transition-delay: 90ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Metabolic · HbA1c</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">5.2</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">%</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 14%; width: 38%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-name="Card · Iron" class="fade-up" style="transition-delay: 180ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Iron · Ferritin</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">68</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">ng/mL</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 40%; width: 34%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-name="Card · Heart" class="fade-up" style="transition-delay: 270ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Heart · ApoB</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">74</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">mg/dL</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 20%; width: 40%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Thyroid" class="fade-up" style="transition-delay: 0ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Thyroid · TSH</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">1.8</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">mIU/L</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 26%; width: 42%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Metabolic" class="fade-up" style="transition-delay: 90ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Metabolic · HbA1c</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">5.2</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">%</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 14%; width: 38%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Iron" class="fade-up" style="transition-delay: 180ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Iron · Ferritin</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">68</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">ng/mL</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 40%; width: 34%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Heart" class="fade-up" style="transition-delay: 270ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Heart · ApoB</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">74</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">mg/dL</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 20%; width: 40%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Thyroid" class="fade-up" style="transition-delay: 0ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Thyroid · TSH</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">1.8</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">mIU/L</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 26%; width: 42%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Metabolic" class="fade-up" style="transition-delay: 90ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Metabolic · HbA1c</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">5.2</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">%</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 14%; width: 38%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Iron" class="fade-up" style="transition-delay: 180ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Iron · Ferritin</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">68</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">ng/mL</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 40%; width: 34%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Heart" class="fade-up" style="transition-delay: 270ms; position: relative; flex: 0 0 328px; width: 328px; height: 404px; margin-right: 16px; border-radius: 14px; overflow: hidden;">
+        <img src="assets/hero-d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; right: 14px; top: 304px; background: rgba(241,238,230,0.93); border-radius: 10px; padding: 12px 14px">
+          <div class="lbl" style="font-size: 9.5px; color: rgba(27,40,54,0.58);">Heart · ApoB</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; padding-top: 4px;">
+            <span class="ser" style="font-size: 34px; line-height: 1;">74</span>
+            <span class="mono" style="font-size: 10px; color: rgba(27,40,54,0.6);">mg/dL</span>
+          </div>
+          <div style="height: 3px; border-radius: 999px; background: rgba(27,40,54,0.14); margin-top: 10px; position: relative;">
+            <div style="position: absolute; left: 20%; width: 40%; top: 0; bottom: 0; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 02 · PANEL -->
+  <section id="s2-panel" data-name="02 What we measure" style="position: relative; padding: 92px 40px 70px;">
+
+    <div id="s2-collage" data-name="Collage" style="position: absolute; inset: 0;">
+      <div data-name="Collage · portrait" class="fade-up" style="transition-delay: 0ms; position: absolute; left: 132px; top: 193px; width: 210px; height: 272px; border-radius: 14px; overflow: hidden"><img src="assets/collage-portrait.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      <div data-name="Collage · still life" class="fade-up" style="transition-delay: 120ms; position: absolute; top: 87px; width: 234px; height: 200px; border-radius: 14px; overflow: hidden; right: 48px"><img src="assets/collage-still.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      <div data-name="Collage · hands" class="fade-up" style="transition-delay: 220ms; position: absolute; top: 420px; width: 234px; height: 156px; border-radius: 14px; overflow: hidden; right: 48px"><img src="assets/collage-hands.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+    </div>
+    <div id="s2-panel-head" data-name="Panel heading" class="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 18px;">
+      <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#33689E" stroke-width="1.1"></circle>
+        <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#33689E" stroke-width="1.1"></path>
+        <path d="M1.2 10h17.6" stroke="#33689E" stroke-width="1.1"></path>
+      </svg>
+      <h2 class="ser" style="margin: 0; text-align: center; font-size: 60px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">Everything we <em>measure</em></h2>
+      <p style="margin: 0; max-width: 480px; text-align: center; font-size: 14px; line-height: 1.62; color: rgba(27,40,54,0.7);">Your standing panel covers 68 markers across eight systems. Your clinician adds to it — and takes things off it — as your history gives them reason to.</p>
+    </div>
+
+    <div id="s2-panel-list" data-name="Marker list" class="fade-up" style="transition-delay: 90ms; max-width: 500px; margin: 46px auto 0; font-size: 12px; line-height: 1.78; color: rgba(27,40,54,0.76); text-align: center; text-wrap: pretty">
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">HEART</strong> ApoB, Lipoprotein(a), Total cholesterol, LDL-C, HDL-C, Triglycerides, Non-HDL cholesterol, hs-CRP, Homocysteine, Particle number.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">METABOLIC</strong> HbA1c, Fasting glucose, Fasting insulin, HOMA-IR, Uric acid, Leptin, Adiponectin.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">THYROID</strong> TSH, Free T4, Free T3, Reverse T3, Thyroid peroxidase antibodies, Thyroglobulin antibodies.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">HORMONES</strong> Total testosterone, Free testosterone, SHBG, Oestradiol, Progesterone, DHEA-S, Cortisol (morning), LH, FSH, Prolactin, AMH.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">NUTRIENTS</strong> Ferritin, Serum iron, Transferrin saturation, Vitamin D, Vitamin B12, Folate, Magnesium, Zinc, Copper, Omega-3 index.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">LIVER &amp; KIDNEY</strong> ALT, AST, GGT, Alkaline phosphatase, Albumin, Bilirubin, Creatinine, eGFR, Cystatin C, Urea, Urine albumin-creatinine ratio.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">BLOOD</strong> Haemoglobin, Haematocrit, Red cell count, MCV, White cell count with differential, Platelets, Reticulocytes.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">INFLAMMATION &amp; IMMUNE</strong> hs-CRP, ESR, Ferritin (acute phase), Coeliac screen, Total IgE, Immunoglobulins A/G/M.
+    </div>
+  </section>
+
+  <!-- ============================================= MARQUEE BAND -->
+  <div id="marquee-band" data-name="Marquee band" style="overflow: hidden; width: 100%; padding: 0 0 96px;">
+    <div class="marquee-track ser" style="animation: marquee-loop-4 52s linear infinite; font-size: 124px; line-height: 1; letter-spacing: -0.018em; color: #1B2836;">
+        <span class="marquee-item" style="padding-right: 70px;">Your health, <em>measured properly</em></span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 70px;">Your health, <em>measured properly</em></span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 70px;">Your health, <em>measured properly</em></span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 70px;">Your health, <em>measured properly</em></span>
+      </div>
+  </div>
+
+  <!-- ======================================================== 03 · TRACKING -->
+  <section id="s3-tracking" data-name="03 Tracked over time" style="background: #1B2836; color: #F1EEE6; padding: 88px 40px 96px;">
+    <div id="s3-tracking-head" data-name="Tracking heading" class="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 18px;">
+      <h2 class="ser" style="margin: 0; text-align: center; font-size: 60px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">A line,<br><em>not a snapshot.</em></h2>
+      <p style="margin: 0; max-width: 430px; text-align: center; font-size: 14px; line-height: 1.62; color: rgba(241,238,230,0.72);">Every panel joins the one before it. What we act on is the direction a marker is moving — not one number on one morning.</p>
+    </div>
+
+    
+  <div id="s4-watch-pills" data-name="Condition pills" class="fade-up" style="position: relative; display: flex; flex-direction: column; gap: 14px; align-items: center; padding-top: 48px; padding-bottom: 0px">
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Thyroid disease</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Insulin resistance</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Iron deficiency</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Cardiovascular risk</span>
+        </div>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Perimenopause</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Kidney function</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Vitamin D deficiency</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Liver strain</span>
+        </div>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Sleep apnoea</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Chronic inflammation</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Coeliac disease</span>
+          <span class="lbl pill" style="font-size: 12px; text-transform: none; letter-spacing: 0; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 14px 26px; background: #F1EEE6; color: #1B2736">Anaemia</span>
+        </div>
+      </div></section>
+
+  <!-- ======================================================== 04 · WATCH LIST -->
+  <section id="s4-watch" data-name="04 Watch list" style="padding: 92px 0 100px;">
+    <h2 class="ser fade-up" style="margin: 0 40px; text-align: center; font-size: 60px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">What we watch for,<br><em>before you feel it.</em></h2>
+
+    <div id="s4-watch-band" data-name="Condition band" style="position: relative; margin-top: 46px; padding: 42px 40px; padding-bottom: 0px">
+      <div id="s4-watch-photos" data-name="Photo strip" style="position: static; inset: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 0 40px; padding-right: 0px; padding-left: 0px">
+        <div data-name="Band · eye" class="fade-up" style="transition-delay: 0ms; position: relative; border-radius: 12px; overflow: hidden; height: 300px"><img src="assets/band-eye.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div data-name="Band · hands" class="fade-up" style="transition-delay: 70ms; position: relative; border-radius: 12px; overflow: hidden; height: 300px"><img src="assets/collage-hands.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div data-name="Band · skin" class="fade-up" style="transition-delay: 140ms; position: relative; border-radius: 12px; overflow: hidden; height: 300px"><img src="assets/band-skin.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div data-name="Band · portrait" class="fade-up" style="transition-delay: 210ms; position: relative; border-radius: 12px; overflow: hidden; height: 300px"><img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      </div>
+
+      
+    </div>
+
+    <div id="s4-care" data-name="Care areas" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; padding: 64px 40px 0; padding-top: 24px">
+      <div data-name="Care · Hormone" class="fade-up" style="transition-delay: 0ms; display: flex; flex-direction: column; gap: 15px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 22px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"></path></svg>
+        <div class="ser" style="font-size: 26px; line-height: 1.12;">Hormone &amp; metabolic</div>
+        <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: rgba(27,40,54,0.72);">Thyroid, insulin, cortisol and the rest of the panel a standard annual skips.</p>
+      </div>
+      <div data-name="Care · Sleep" class="fade-up" style="transition-delay: 70ms; display: flex; flex-direction: column; gap: 15px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 22px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.5 8.5 0 1 1 10.3 3.6a6.7 6.7 0 0 0 10.2 10.6z"></path></svg>
+        <div class="ser" style="font-size: 26px; line-height: 1.12;">Sleep &amp; recovery</div>
+        <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: rgba(27,40,54,0.72);">A take-home sleep study, then a plan you can actually keep on a Tuesday night.</p>
+      </div>
+      <div data-name="Care · Nutrition" class="fade-up" style="transition-delay: 140ms; display: flex; flex-direction: column; gap: 15px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 22px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c0 8.5-4.6 13-11 13H5.5"></path><path d="M4 20c0-6 3.5-9.6 9-10.6"></path></svg>
+        <div class="ser" style="font-size: 26px; line-height: 1.12;">Nutrition &amp; gut</div>
+        <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: rgba(27,40,54,0.72);">Dietitian-led, built around what you cook and what you order on the way home.</p>
+      </div>
+      <div data-name="Care · Longevity" class="fade-up" style="transition-delay: 210ms; display: flex; flex-direction: column; gap: 15px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 22px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3.4"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg>
+        <div class="ser" style="font-size: 26px; line-height: 1.12;">Longevity screening</div>
+        <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: rgba(27,40,54,0.72);">Baseline imaging and bloodwork, repeated on a schedule that makes sense for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 05 · MEMBERSHIP -->
+  <section id="s5-membership" data-name="05 Membership" style="background: #E7E3D8; padding: 88px 40px 96px;">
+    <h2 class="ser fade-up" style="margin: 0; text-align: center; font-size: 58px; line-height: 1.06; letter-spacing: -0.02em; font-weight: 400;">One membership.<br><em style="color: #33689E;">Everything in it.</em></h2>
+
+    <div id="s5-body" data-name="Membership body" style="display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 66px; max-width: 1140px; margin: 52px auto 0; align-items: start;">
+
+      <div id="s5-left" data-name="Membership column" style="display: flex; flex-direction: column; gap: 20px;">
+        <div id="s5-card" data-name="Membership card" class="fade-up" style="background: #F1EEE6; border-radius: 16px; padding: 30px; display: flex; flex-direction: column; gap: 22px;">
+        <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="10" cy="10" r="9" stroke="#33689E" stroke-width="1.1"></circle>
+          <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#33689E" stroke-width="1.1"></path>
+        </svg>
+        <div>
+          <div class="ser" style="font-size: 34px; line-height: 1.14;">Verda<br>Membership</div>
+          <p style="margin: 12px 0 0; font-size: 13.5px; line-height: 1.6; color: rgba(27,40,54,0.7);">Everything below, for one price, billed annually. Cancel before your second panel and we refund it.</p>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 8px; border-top: 1px solid rgba(27,40,54,0.16); padding-top: 20px;">
+          <span class="ser" style="font-size: 52px; line-height: 1;">$100</span>
+          <span class="mono" style="font-size: 11px; color: rgba(27,40,54,0.6);">/ year</span>
+        </div>
+        <a class="lbl" href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 17px; background: #33689E; color: #F1EEE6;">Start with a call <span style="font-size: 11px;">↗</span></a>
+      </div>
+        
+
+      </div>
+
+      <div id="s5-steps" data-name="First eight weeks" class="fade-up" style="transition-delay: 100ms; display: flex; flex-direction: column; gap: 24px; padding-top: 6px;">
+        <div>
+          <div class="lbl" style="color: rgba(27,40,54,0.55);">Your first eight weeks</div>
+          <p class="ser" style="margin: 14px 0 0; font-size: 27px; line-height: 1.32; letter-spacing: -0.008em;">Joining takes about a week. Here is exactly what happens, in order, so that none of it is a surprise.</p>
+        </div>
+        <div data-name="Step list" style="display: flex; flex-direction: column;">
+          <div style="display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 20px; border-top: 1px solid rgba(27,40,54,0.22); padding: 17px 0;">
+            <span class="lbl" style="color: #33689E;">/01</span>
+            <span style="font-size: 14px; line-height: 1.58;">A twenty-minute call about what's actually going on. No forms yet.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 20px; border-top: 1px solid rgba(27,40,54,0.22); padding: 17px 0;">
+            <span class="lbl" style="color: #33689E;">/02</span>
+            <span style="font-size: 14px; line-height: 1.58;">Full panel drawn, then a ninety-minute first visit with your clinician.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 20px; border-top: 1px solid rgba(27,40,54,0.22); padding: 17px 0;">
+            <span class="lbl" style="color: #33689E;">/03</span>
+            <span style="font-size: 14px; line-height: 1.58;">Your plan arrives in writing: what changes, what we're watching, and why.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 20px; border-top: 1px solid rgba(27,40,54,0.22); padding: 17px 0;">
+            <span class="lbl" style="color: #33689E;">/04</span>
+            <span style="font-size: 14px; line-height: 1.58;">Check-ins at six and twelve weeks, with markers repeated where it matters.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 20px; border-top: 1px solid rgba(27,40,54,0.22); border-bottom: 1px solid rgba(27,40,54,0.22); padding: 17px 0;">
+            <span class="lbl" style="color: #33689E;">/05</span>
+            <span style="font-size: 14px; line-height: 1.58;">A standing line to your care team for everything in between.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 06 · FAQ -->
+  <section id="s6-faq" data-name="06 FAQ" style="padding: 92px 40px 96px;">
+    <div id="s6-split" data-name="FAQ split" style="display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 70px; max-width: 1180px; margin: 0 auto;">
+    <h2 class="ser fade-up" style="margin: 0; font-size: 54px; line-height: 1.08; letter-spacing: -0.018em; font-weight: 400;">Questions we get<br><em>a lot.</em></h2>
+    <div id="s6-faq-list" data-name="FAQ list" style="padding-top: 6px;">
+      <div class="faq-row fade-up open" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 21px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 15px; line-height: 1.4; letter-spacing: -0.005em;">What does membership include?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 17px; line-height: 1; color: #33689E;">–</span>
+  </div>
+  <div class="faq-a" style="display: block; padding: 0 110px 22px 2px; font-size: 13.5px; line-height: 1.68; color: rgba(27,40,54,0.74);">Two full panels a year, two long visits, unlimited messaging with your care team, and same-week appointments when something comes up. Membership is $100 per year.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 21px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 15px; line-height: 1.4; letter-spacing: -0.005em;">Do you take insurance?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 17px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 110px 22px 2px; font-size: 13.5px; line-height: 1.68; color: rgba(27,40,54,0.74);">Membership itself is paid directly. Labs, imaging and prescriptions are billed to your insurer where they are covered, and we tell you which is which before anything is ordered.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 21px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 15px; line-height: 1.4; letter-spacing: -0.005em;">Who is Verda for?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 17px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 110px 22px 2px; font-size: 13.5px; line-height: 1.68; color: rgba(27,40,54,0.74);">Adults who want one clinician who knows their history, and who would rather sort something out early than manage it later. We are not an urgent care or an emergency service.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 21px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 15px; line-height: 1.4; letter-spacing: -0.005em;">Where are you located?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 17px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 110px 22px 2px; font-size: 13.5px; line-height: 1.68; color: rgba(27,40,54,0.74);">Our clinic is at 104 Wren Street, Austin, Texas 78703, with video visits available for anyone in Texas. Blood draws can be done here or at any of our partner labs.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 21px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 15px; line-height: 1.4; letter-spacing: -0.005em;">Do I see the same clinician every time?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 17px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 110px 22px 2px; font-size: 13.5px; line-height: 1.68; color: rgba(27,40,54,0.74);">Yes. You are matched to one clinician at the start and stay with them. If they are away, whoever covers has already read your plan.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 21px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 15px; line-height: 1.4; letter-spacing: -0.005em;">How is my health data handled?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 17px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 110px 22px 2px; font-size: 13.5px; line-height: 1.68; color: rgba(27,40,54,0.74);">Your records live in a HIPAA-compliant system, are never sold, and are shared only with clinicians you name. You can export or delete everything on request.</div>
+</div>
+      <div style="border-top: 1px solid rgba(27,40,54,0.24);"></div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 07 · CTA BAND -->
+  <section id="s7-cta" data-name="07 CTA band" style="background: #F1EEE6; padding: 96px 40px 104px;">
+    <div id="s7-cta-card" data-name="CTA card" class="fade-up" style="position: relative; overflow: hidden; border-radius: 28px; min-height: 500px; max-width: 1240px; margin: 0 auto; display: flex; align-items: flex-start;">
+      <img src="assets/cta-together.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(105deg, rgba(19,24,15,0.86) 0%, rgba(19,24,15,0.58) 40%, rgba(19,24,15,0.08) 68%, rgba(19,24,15,0) 82%);"></div>
+      <div style="position: relative; padding: 64px 56px; max-width: 620px; display: flex; flex-direction: column; gap: 28px;">
+        <h2 class="ser" style="margin: 0; color: #F1EEE6; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 400;">Ready to take<br>control of your<br><em style="color: #33689E;">health?</em></h2>
+        <p style="margin: 0; max-width: 380px; font-size: 14px; line-height: 1.62; color: rgba(241,238,230,0.82);">The call is free and there is no panel to book until you have spoken to someone.</p>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-top: 4px;">
+          <a class="lbl cta-btn-primary" href="#" style="display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 18px 32px; background: #F1EEE6; color: #1B2836;">Start with a call <span style="font-size: 11px;">↗</span></a>
+          <a class="lbl cta-btn-secondary" href="#" style="display: inline-flex; align-items: center; border-radius: 999px; padding: 18px 32px; border: 1px solid rgba(241,238,230,0.6); color: #F1EEE6;">See membership</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 07 · FOOTER -->
+  <footer id="s7-footer" data-name="07 Footer" style="background: #1B2836; color: #F1EEE6; padding: 72px 0 0; overflow: hidden;">
+    <div id="s7-footer-top" data-name="Footer columns" class="fade-up" style="display: grid; grid-template-columns: minmax(0, 1fr) 190px 190px 190px; gap: 40px; padding: 0 40px;">
+      <div data-name="Footer mark" style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 11px;">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" stroke="#F1EEE6" stroke-width="1.2"></circle>
+            <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#F1EEE6" stroke-width="1.2"></path>
+          </svg>
+          <span class="ser" style="font-size: 21px; letter-spacing: 0.38em;">VERDA</span>
+        </div>
+        <p style="margin: 0; max-width: 260px; font-size: 13px; line-height: 1.6; color: rgba(241,238,230,0.62);">104 Wren Street, Austin, Texas 78703<br>(512) 555 0148 · hello@verdaclinic.com</p>
+      </div>
+      <div data-name="Footer · Clinic" style="display: flex; flex-direction: column; gap: 12px;">
+        <span class="lbl" style="color: rgba(241,238,230,0.5);">Clinic</span>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">The panel</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Our approach</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Membership</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Book a call</a>
+      </div>
+      <div data-name="Footer · Company" style="display: flex; flex-direction: column; gap: 12px;">
+        <span class="lbl" style="color: rgba(241,238,230,0.5);">Company</span>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">About</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Clinicians</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Journal</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Careers</a>
+      </div>
+      <div data-name="Footer · Legal" style="display: flex; flex-direction: column; gap: 12px;">
+        <span class="lbl" style="color: rgba(241,238,230,0.5);">Legal</span>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Privacy</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Terms</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Data handling</a>
+        <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Complaints</a>
+      </div>
+    </div>
+
+    <div id="s7-footer-marquee" data-name="Footer marquee" style="overflow: hidden; width: 100%; padding-top: 58px;">
+      <div class="marquee-track ser" style="animation: marquee-loop-4 60s linear infinite; font-size: 118px; line-height: 1; letter-spacing: -0.018em; color: rgba(241,238,230,0.14);">
+        <span class="marquee-item" style="padding-right: 66px;">Your health, measured properly</span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 66px;">Your health, measured properly</span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 66px;">Your health, measured properly</span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 66px;">Your health, measured properly</span>
+      </div>
+    </div>
+
+    <div id="s7-footer-legal" data-name="Footer legal bar" style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(241,238,230,0.16); margin-top: 26px; padding: 20px 40px 24px;">
+      <span class="lbl" style="color: rgba(241,238,230,0.5);">© 2026 Verda Wellness</span>
+      <span class="lbl" style="color: rgba(241,238,230,0.5);">Not a substitute for emergency care</span>
+    </div>
+  </footer>
+
+</div>
+</div>
+<div class="mobile-view">
+<div id="page" data-name="Page" style="width: 100%; background: #F1EEE6; color: #1B2836; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;">
+
+  <!-- ================================ 01 · NAV -->
+  <header id="s1-nav" data-name="01 Nav" class="fade-up" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px;">
+    <div data-name="Wordmark" style="display: flex; align-items: center; gap: 9px;">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#1B2836" stroke-width="1.2"/>
+        <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#1B2836" stroke-width="1.2"/>
+      </svg>
+      <span class="ser" style="font-size: 17px; letter-spacing: 0.36em;">VERDA</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <a class="lbl" href="#" style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 15px 18px; background: #33689E; color: #F1EEE6;">Call <span style="font-size: 10px;">&#8599;</span></a>
+      <div data-name="Menu button" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 6px; width: 44px; height: 44px; cursor: pointer;">
+        <span style="width: 22px; height: 1px; background: #1B2836;"></span>
+        <span style="width: 22px; height: 1px; background: #1B2836;"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================ 01 · HERO -->
+  <section id="s1-hero" data-name="01 Hero" style="position: relative; padding: 34px 20px 0;">
+
+    <div id="s1-badge" data-name="Hero badge" class="fade-up" style="transition-delay: 220ms; position: absolute; right: 26px; top: 396px; z-index: 2; width: 92px; height: 92px; border-radius: 999px; background: #33689E; display: flex; align-items: center; justify-content: center; text-align: center;">
+      <span class="lbl" style="line-height: 1.7; color: #F1EEE6;">Start<br>here &#8599;</span>
+    </div>
+    <div id="s1-hero-copy" data-name="Hero copy" class="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <h1 class="ser" style="margin: 0; text-align: center; font-size: 50px; line-height: 1.02; letter-spacing: -0.022em; font-weight: 400;">Your health,<br><em style="color: #33689E;">measured properly.</em></h1>
+      <p style="margin: 0; text-align: center; font-size: 14px; line-height: 1.6; color: rgba(27,40,54,0.74);">One clinic, one clinician, and a full panel twice a year &mdash; read by someone who remembers your last one. Membership is $100 a year.</p>
+      <a class="lbl" href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; border-radius: 999px; padding: 18px; background: #1B2836; color: #F1EEE6;">Start with a call <span style="font-size: 11px;">&#8599;</span></a>
+      <a class="lbl" href="#" style="border-bottom: 1px solid rgba(27,40,54,0.4); padding-bottom: 3px;">See what we measure</a>
+    </div>
+
+    <div id="s1-hero-cards" data-name="Hero card strip" style="overflow: hidden; width: auto; margin: 0 -20px; padding-top: 36px;">
+      <div class="card-track" style="animation: marquee-loop-3 34s linear infinite;">
+      <div data-name="Card · Thyroid" class="fade-up" style="transition-delay: 0ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">TSH</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">1.8</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">mIU/L</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-name="Card · Metabolic" class="fade-up" style="transition-delay: 90ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">HbA1c</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">5.2</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-name="Card · Iron" class="fade-up" style="transition-delay: 180ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">Ferritin</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">68</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">ng/mL</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-name="Card · Heart" class="fade-up" style="transition-delay: 270ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">ApoB</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">74</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">mg/dL</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Thyroid" class="fade-up" style="transition-delay: 0ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">TSH</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">1.8</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">mIU/L</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Metabolic" class="fade-up" style="transition-delay: 90ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">HbA1c</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">5.2</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Iron" class="fade-up" style="transition-delay: 180ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">Ferritin</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">68</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">ng/mL</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Heart" class="fade-up" style="transition-delay: 270ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">ApoB</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">74</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">mg/dL</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Thyroid" class="fade-up" style="transition-delay: 0ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">TSH</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">1.8</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">mIU/L</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Metabolic" class="fade-up" style="transition-delay: 90ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">HbA1c</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">5.2</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Iron" class="fade-up" style="transition-delay: 180ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">Ferritin</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">68</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">ng/mL</span>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" data-name="Card · Heart" class="fade-up" style="transition-delay: 270ms; position: relative; flex: 0 0 196px; width: 196px; height: 236px; margin-right: 12px; border-radius: 12px; overflow: hidden;">
+        <img src="assets/hero-d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 10px; right: 10px; top: 10px; background: rgba(241,238,230,0.93); border-radius: 9px; padding: 10px 11px;">
+          <div class="lbl" style="font-size: 8.5px; color: rgba(27,40,54,0.58);">ApoB</div>
+          <div style="display: flex; align-items: baseline; gap: 5px; padding-top: 3px;">
+            <span class="ser" style="font-size: 27px; line-height: 1;">74</span>
+            <span class="mono" style="font-size: 9px; color: rgba(27,40,54,0.6);">mg/dL</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ 02 · PANEL -->
+  <section id="s2-panel" data-name="02 What we measure" style="padding: 56px 20px 36px;">
+    <div id="s2-panel-head" data-name="Panel heading" class="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#33689E" stroke-width="1.1"/>
+        <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#33689E" stroke-width="1.1"/>
+        <path d="M1.2 10h17.6" stroke="#33689E" stroke-width="1.1"/>
+      </svg>
+      <h2 class="ser" style="margin: 0; text-align: center; font-size: 42px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">Everything we <em>measure</em></h2>
+      <p style="margin: 0; text-align: center; font-size: 13.5px; line-height: 1.6; color: rgba(27,40,54,0.7);">Your standing panel covers 68 markers across eight systems, adjusted as your history gives reason to.</p>
+    </div>
+    <div id="s2-collage" data-name="Collage" class="fade-up" style="transition-delay: 90ms; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 26px;">
+      <div data-name="Collage · portrait" style="position: relative; height: 200px; border-radius: 12px; overflow: hidden;"><img src="assets/collage-portrait.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div data-name="Collage · still life" style="position: relative; height: 118px; border-radius: 12px; overflow: hidden;"><img src="assets/collage-still.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div data-name="Collage · hands" style="position: relative; height: 70px; border-radius: 12px; overflow: hidden;"><img src="assets/collage-hands.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      </div>
+    </div>
+    <div id="s2-panel-list" data-name="Marker list" class="fade-up" style="transition-delay: 160ms; margin-top: 28px; font-size: 12px; line-height: 1.75; color: rgba(27,40,54,0.76); text-wrap: pretty;">
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">HEART</strong> ApoB, Lipoprotein(a), Total cholesterol, LDL-C, HDL-C, Triglycerides, hs-CRP, Homocysteine.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">METABOLIC</strong> HbA1c, Fasting glucose, Fasting insulin, HOMA-IR, Uric acid.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">THYROID</strong> TSH, Free T4, Free T3, Reverse T3, Thyroid antibodies.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">HORMONES</strong> Testosterone, SHBG, Oestradiol, Progesterone, DHEA-S, Cortisol, LH, FSH, AMH.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">NUTRIENTS</strong> Ferritin, Serum iron, Vitamin D, Vitamin B12, Folate, Magnesium, Zinc, Omega-3 index.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">LIVER &amp; KIDNEY</strong> ALT, AST, GGT, Albumin, Bilirubin, Creatinine, eGFR, Cystatin C, Urea.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">BLOOD</strong> Haemoglobin, Haematocrit, MCV, White cell differential, Platelets.
+      <strong style="color: #33689E; font-weight: 600; letter-spacing: 0.04em;">INFLAMMATION &amp; IMMUNE</strong> hs-CRP, ESR, Coeliac screen, Total IgE, Immunoglobulins A/G/M.
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE BAND -->
+  <div id="marquee-band" data-name="Marquee band" style="overflow: hidden; width: 100%; padding: 0 0 56px;">
+    <div class="marquee-track ser" style="animation: marquee-loop-4 30s linear infinite; font-size: 58px; line-height: 1; letter-spacing: -0.018em; color: #1B2836;">
+        <span class="marquee-item" style="padding-right: 32px;">Your health, <em>measured properly</em></span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 32px;">Your health, <em>measured properly</em></span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 32px;">Your health, <em>measured properly</em></span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 32px;">Your health, <em>measured properly</em></span>
+      </div>
+  </div>
+
+  <!-- ================================ 03 · TRACKING -->
+  <section id="s3-tracking" data-name="03 Tracked over time" style="background: #1B2836; color: #F1EEE6; padding: 56px 20px 60px;">
+    <div id="s3-tracking-head" data-name="Tracking heading" class="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <h2 class="ser" style="margin: 0; text-align: center; font-size: 42px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">A line,<br><em>not a snapshot.</em></h2>
+      <p style="margin: 0; text-align: center; font-size: 13.5px; line-height: 1.6; color: rgba(241,238,230,0.72);">Every panel joins the one before it. What we act on is the direction a marker is moving.</p>
+    </div>
+    <div id="s3-tracking-panel" data-name="Tracking panel" class="fade-up" style="transition-delay: 90ms; background: #F1EEE6; border-radius: 14px; padding: 18px; margin-top: 30px;">
+      <div id="s3-readout" data-name="Marker readout" style="border: 1px solid rgba(27,40,54,0.16); border-radius: 11px; padding: 14px 16px;">
+        <div class="lbl" style="font-size: 9px; color: rgba(27,40,54,0.58);">Thyroid stimulating hormone</div>
+        <div style="display: flex; align-items: baseline; gap: 7px; padding-top: 8px;">
+          <span class="ser" style="font-size: 46px; line-height: 1; color: #33689E;">1.8</span>
+          <span class="mono" style="font-size: 10.5px; color: rgba(27,40,54,0.6);">mIU/L</span>
+        </div>
+        <div style="border-top: 1px solid rgba(27,40,54,0.14); margin-top: 14px; padding-top: 11px;">
+          <div class="lbl" style="font-size: 9px; color: rgba(27,40,54,0.5);">Optimal range 0.5 &ndash; 2.5</div>
+          <div style="height: 4px; border-radius: 999px; background: rgba(27,40,54,0.12); margin-top: 9px; position: relative;">
+            <div style="position: absolute; left: 22%; width: 46%; top: 0; bottom: 0; border-radius: 999px; background: rgba(51,104,158,0.3);"></div>
+            <div style="position: absolute; left: 41%; top: -3px; width: 10px; height: 10px; border-radius: 999px; background: #33689E;"></div>
+          </div>
+        </div>
+      </div>
+      <div id="s3-chart" data-name="Trend chart" style="padding-top: 18px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span class="lbl" style="font-size: 9px; color: rgba(27,40,54,0.5);">Four panels</span>
+          <span class="lbl" style="font-size: 9px; border-radius: 999px; padding: 7px 12px; background: rgba(51,104,158,0.12); color: #33689E;">Tracking</span>
+        </div>
+        <svg width="100%" height="130" viewBox="0 0 320 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 12px;">
+          <line x1="0" y1="30" x2="320" y2="30" stroke="rgba(27,40,54,0.10)" stroke-width="1"/>
+          <line x1="0" y1="65" x2="320" y2="65" stroke="rgba(27,40,54,0.10)" stroke-width="1"/>
+          <line x1="0" y1="100" x2="320" y2="100" stroke="rgba(27,40,54,0.10)" stroke-width="1"/>
+          <rect x="0" y="46" width="320" height="44" fill="rgba(51,104,158,0.07)"/>
+          <path d="M10 96 C 64 92, 86 78, 116 75 S 184 69, 222 61 S 288 51, 312 48" stroke="#33689E" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="10" cy="96" r="4" fill="#33689E"/>
+          <circle cx="116" cy="75" r="4" fill="#33689E"/>
+          <circle cx="222" cy="61" r="4" fill="#33689E"/>
+          <circle cx="312" cy="48" r="5" fill="#33689E"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ 04 · WATCH LIST -->
+  <section id="s4-watch" data-name="04 Watch list" style="padding: 56px 20px 60px;">
+    <h2 class="ser fade-up" style="margin: 0; text-align: center; font-size: 42px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">What we watch for,<br><em>before you feel it.</em></h2>
+
+    <div id="s4-watch-band" data-name="Condition band" style="position: relative; margin-top: 28px; padding: 26px 12px;">
+      <div id="s4-watch-photos" data-name="Photo strip" class="fade-up" style="position: absolute; inset: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+        <div data-name="Band · eye" style="position: relative; border-radius: 12px; overflow: hidden;"><img src="assets/band-eye.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+        <div data-name="Band · skin" style="position: relative; border-radius: 12px; overflow: hidden;"><img src="assets/band-skin.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      </div>
+      <div id="s4-watch-pills" data-name="Condition pills" class="fade-up" style="transition-delay: 100ms; position: relative; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Thyroid disease</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Insulin resistance</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Iron deficiency</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Cardiovascular risk</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Perimenopause</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Vitamin D deficiency</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Liver strain</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Sleep apnoea</span>
+        <span style="font-size: 12px; border: 1px solid rgba(27,40,54,0.5); border-radius: 999px; padding: 13px 18px; background: #F1EEE6;">Anaemia</span>
+      </div>
+    </div>
+
+    <div id="s4-care" data-name="Care areas" style="display: flex; flex-direction: column; gap: 24px; padding-top: 40px;">
+      <div data-name="Care · Hormone" class="fade-up" style="transition-delay: 0ms; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 18px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></svg>
+        <div class="ser" style="font-size: 24px; line-height: 1.12;">Hormone &amp; metabolic</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(27,40,54,0.72);">Thyroid, insulin, cortisol and the rest of the panel a standard annual skips.</p>
+      </div>
+      <div data-name="Care · Sleep" class="fade-up" style="transition-delay: 70ms; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 18px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.5 8.5 0 1 1 10.3 3.6a6.7 6.7 0 0 0 10.2 10.6z"/></svg>
+        <div class="ser" style="font-size: 24px; line-height: 1.12;">Sleep &amp; recovery</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(27,40,54,0.72);">A take-home sleep study, then a plan you can actually keep on a Tuesday night.</p>
+      </div>
+      <div data-name="Care · Nutrition" class="fade-up" style="transition-delay: 140ms; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 18px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c0 8.5-4.6 13-11 13H5.5"/><path d="M4 20c0-6 3.5-9.6 9-10.6"/></svg>
+        <div class="ser" style="font-size: 24px; line-height: 1.12;">Nutrition &amp; gut</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(27,40,54,0.72);">Dietitian-led, built around what you cook and what you order on the way home.</p>
+      </div>
+      <div data-name="Care · Longevity" class="fade-up" style="transition-delay: 210ms; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(27,40,54,0.28); padding-top: 18px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#33689E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        <div class="ser" style="font-size: 24px; line-height: 1.12;">Longevity screening</div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(27,40,54,0.72);">Baseline imaging and bloodwork, repeated on a schedule that makes sense for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ 05 · MEMBERSHIP -->
+  <section id="s5-membership" data-name="05 Membership" style="background: #E7E3D8; padding: 56px 20px 60px;">
+    <h2 class="ser fade-up" style="margin: 0; text-align: center; font-size: 38px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 400;">One membership.<br><em style="color: #33689E;">Everything in it.</em></h2>
+
+    <div id="s5-photo" data-name="Member photo" class="fade-up" style="position: relative; height: 240px; border-radius: 14px; overflow: hidden; margin-top: 30px;"><img src="assets/journey.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+    <div id="s5-card" data-name="Membership card" class="fade-up" style="transition-delay: 90ms; background: #F1EEE6; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 18px; margin-top: 16px;">
+      <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#33689E" stroke-width="1.1"/>
+        <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#33689E" stroke-width="1.1"/>
+      </svg>
+      <div>
+        <div class="ser" style="font-size: 30px; line-height: 1.14;">Verda Membership</div>
+        <p style="margin: 10px 0 0; font-size: 13px; line-height: 1.6; color: rgba(27,40,54,0.7);">Everything below, for one price, billed annually. Cancel before your second panel and we refund it.</p>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 8px; border-top: 1px solid rgba(27,40,54,0.16); padding-top: 16px;">
+        <span class="ser" style="font-size: 44px; line-height: 1;">$100</span>
+        <span class="mono" style="font-size: 11px; color: rgba(27,40,54,0.6);">/ year</span>
+      </div>
+      <a class="lbl" href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 18px; background: #33689E; color: #F1EEE6;">Start with a call <span style="font-size: 11px;">&#8599;</span></a>
+    </div>
+
+    <div id="s5-steps" data-name="First eight weeks" class="fade-up" style="transition-delay: 160ms; padding-top: 34px;">
+      <div class="lbl" style="color: rgba(27,40,54,0.55);">Your first eight weeks</div>
+      <p class="ser" style="margin: 12px 0 0; font-size: 23px; line-height: 1.32;">Joining takes about a week. Here is exactly what happens, in order.</p>
+      <div data-name="Step list" style="display: flex; flex-direction: column; padding-top: 18px;">
+        <div style="display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; border-top: 1px solid rgba(27,40,54,0.22); padding: 15px 0;">
+          <span class="lbl" style="color: #33689E;">/01</span>
+          <span style="font-size: 13.5px; line-height: 1.56;">A twenty-minute call about what's actually going on. No forms yet.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; border-top: 1px solid rgba(27,40,54,0.22); padding: 15px 0;">
+          <span class="lbl" style="color: #33689E;">/02</span>
+          <span style="font-size: 13.5px; line-height: 1.56;">Full panel drawn, then a ninety-minute first visit with your clinician.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; border-top: 1px solid rgba(27,40,54,0.22); padding: 15px 0;">
+          <span class="lbl" style="color: #33689E;">/03</span>
+          <span style="font-size: 13.5px; line-height: 1.56;">Your plan arrives in writing: what changes, what we're watching, and why.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; border-top: 1px solid rgba(27,40,54,0.22); padding: 15px 0;">
+          <span class="lbl" style="color: #33689E;">/04</span>
+          <span style="font-size: 13.5px; line-height: 1.56;">Check-ins at six and twelve weeks, with markers repeated where it matters.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; border-top: 1px solid rgba(27,40,54,0.22); border-bottom: 1px solid rgba(27,40,54,0.22); padding: 15px 0;">
+          <span class="lbl" style="color: #33689E;">/05</span>
+          <span style="font-size: 13.5px; line-height: 1.56;">A standing line to your care team for everything in between.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ 06 · FAQ -->
+  <section id="s6-faq" data-name="06 FAQ" style="padding: 56px 20px 60px;">
+    <h2 class="ser fade-up" style="margin: 0 0 28px; text-align: center; font-size: 40px; line-height: 1.04; letter-spacing: -0.02em; font-weight: 400;">Questions we get <em>a lot.</em></h2>
+    <div id="s6-faq-list" data-name="FAQ list">
+      <div class="faq-row fade-up open" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 14px; line-height: 1.4;">What does membership include?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 16px; line-height: 1; color: #33689E;">–</span>
+  </div>
+  <div class="faq-a" style="display: block; padding: 0 20px 20px 2px; font-size: 13px; line-height: 1.66; color: rgba(27,40,54,0.74);">Two full panels a year, two long visits, unlimited messaging with your care team, and same-week appointments when something comes up. Membership is $100 per year.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 14px; line-height: 1.4;">Do you take insurance?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 16px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 20px 20px 2px; font-size: 13px; line-height: 1.66; color: rgba(27,40,54,0.74);">Membership itself is paid directly. Labs, imaging and prescriptions are billed to your insurer where they are covered, and we tell you which is which before anything is ordered.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 14px; line-height: 1.4;">Who is Verda for?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 16px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 20px 20px 2px; font-size: 13px; line-height: 1.66; color: rgba(27,40,54,0.74);">Adults who want one clinician who knows their history, and who would rather sort something out early than manage it later. We are not an urgent care or an emergency service.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 14px; line-height: 1.4;">Where are you located?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 16px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 20px 20px 2px; font-size: 13px; line-height: 1.66; color: rgba(27,40,54,0.74);">Our clinic is at 104 Wren Street, Austin, Texas 78703, with video visits available for anyone in Texas. Blood draws can be done here or at any of our partner labs.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 14px; line-height: 1.4;">Do I see the same clinician every time?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 16px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 20px 20px 2px; font-size: 13px; line-height: 1.66; color: rgba(27,40,54,0.74);">Yes. You are matched to one clinician at the start and stay with them. If they are away, whoever covers has already read your plan.</div>
+</div>
+<div class="faq-row fade-up" style="border-top: 1px solid rgba(27,40,54,0.24);">
+  <div class="faq-q" onclick="toggleFaq(this)" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; cursor: pointer;">
+    <span class="faq-q-text" style="font-size: 14px; line-height: 1.4;">How is my health data handled?</span><span class="faq-sign" style="font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 16px; line-height: 1; color: #33689E;">+</span>
+  </div>
+  <div class="faq-a" style="display: none; padding: 0 20px 20px 2px; font-size: 13px; line-height: 1.66; color: rgba(27,40,54,0.74);">Your records live in a HIPAA-compliant system, are never sold, and are shared only with clinicians you name. You can export or delete everything on request.</div>
+</div>
+      <div style="border-top: 1px solid rgba(27,40,54,0.24);"></div>
+    </div>
+  </section>
+
+  <!-- ================================ 07 · CTA BAND -->
+  <section id="s7-cta" data-name="07 CTA band" style="background: #F1EEE6; padding: 56px 20px 60px;">
+    <div id="s7-cta-card" data-name="CTA card" class="fade-up" style="position: relative; overflow: hidden; border-radius: 22px; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end;">
+      <img src="assets/cta-together.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(19,24,15,0.9) 0%, rgba(19,24,15,0.6) 44%, rgba(19,24,15,0.1) 74%, rgba(19,24,15,0) 100%);"></div>
+      <div style="position: relative; padding: 28px 24px; display: flex; flex-direction: column; gap: 18px;">
+        <h2 class="ser" style="margin: 0; color: #F1EEE6; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 400;">Ready to take control of your <em style="color: #33689E;">health?</em></h2>
+        <p style="margin: 0; font-size: 13px; line-height: 1.58; color: rgba(241,238,230,0.82);">The call is free and there is no panel to book until you have spoken to someone.</p>
+        <a class="lbl cta-btn-primary" href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; border-radius: 999px; padding: 18px; background: #F1EEE6; color: #1B2836;">Start with a call <span style="font-size: 11px;">&#8599;</span></a>
+        <a class="lbl cta-btn-secondary" href="#" style="display: flex; align-items: center; justify-content: center; width: 100%; border-radius: 999px; padding: 18px; border: 1px solid rgba(241,238,230,0.6); color: #F1EEE6;">See membership</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ 07 · FOOTER -->
+  <footer id="s7-footer" data-name="07 Footer" style="background: #1B2836; color: #F1EEE6; padding: 48px 0 0; overflow: hidden;">
+    <div id="s7-footer-top" data-name="Footer columns" class="fade-up" style="padding: 0 20px; display: flex; flex-direction: column; gap: 30px;">
+      <div data-name="Footer mark" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 9px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" stroke="#F1EEE6" stroke-width="1.2"/>
+            <path d="M10 1.2c3.1 2.3 4.6 5.2 4.6 8.8S13.1 16.5 10 18.8C6.9 16.5 5.4 13.6 5.4 10S6.9 3.5 10 1.2z" stroke="#F1EEE6" stroke-width="1.2"/>
+          </svg>
+          <span class="ser" style="font-size: 19px; letter-spacing: 0.36em;">VERDA</span>
+        </div>
+        <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(241,238,230,0.62);">104 Wren Street, Austin, Texas 78703<br>(512) 555 0148 &middot; hello@verdaclinic.com</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px;">
+        <div data-name="Footer · Clinic" style="display: flex; flex-direction: column; gap: 11px;">
+          <span class="lbl" style="color: rgba(241,238,230,0.5);">Clinic</span>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">The panel</a>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Our approach</a>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Membership</a>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Book a call</a>
+        </div>
+        <div data-name="Footer · Company" style="display: flex; flex-direction: column; gap: 11px;">
+          <span class="lbl" style="color: rgba(241,238,230,0.5);">Company</span>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">About</a>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Clinicians</a>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Journal</a>
+          <a href="#" style="color: rgba(241,238,230,0.88); font-size: 13.5px;">Careers</a>
+        </div>
+      </div>
+    </div>
+    <div id="s7-footer-marquee" data-name="Footer marquee" style="overflow: hidden; width: 100%; padding-top: 40px;">
+      <div class="marquee-track ser" style="animation: marquee-loop-4 34s linear infinite; font-size: 56px; line-height: 1; letter-spacing: -0.018em; color: rgba(241,238,230,0.14);">
+        <span class="marquee-item" style="padding-right: 30px;">Your health, measured properly</span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 30px;">Your health, measured properly</span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 30px;">Your health, measured properly</span>
+        <span class="marquee-item" aria-hidden="true" style="padding-right: 30px;">Your health, measured properly</span>
+      </div>
+    </div>
+    <div id="s7-footer-legal" data-name="Footer legal bar" style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(241,238,230,0.16); margin-top: 22px; padding: 16px 20px 20px;">
+      <span class="lbl" style="color: rgba(241,238,230,0.5);">&copy; 2026 Verda</span>
+      <span class="lbl" style="color: rgba(241,238,230,0.5);">Privacy</span>
+    </div>
+  </footer>
+
+</div>
+</div>
+
+  <script>
+    (function () {
+      function reveal(el) { el.classList.add('is-visible'); }
+      var els = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window)) { els.forEach(reveal); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { reveal(entry.target); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      els.forEach(function (el, i) {
+        if (!el.style.transitionDelay) el.style.transitionDelay = (Math.min(i % 5, 4) * 110) + 'ms';
+        io.observe(el);
+      });
+      setTimeout(function () {
+        document.querySelectorAll('.fade-up:not(.is-visible)').forEach(reveal);
+      }, 3000);
+    })();
+
+    function toggleFaq(el) {
+      var row = el.closest('.faq-row');
+      var list = row.parentElement;
+      var wasOpen = row.classList.contains('open');
+      list.querySelectorAll('.faq-row').forEach(function (r) {
+        r.classList.remove('open');
+        r.querySelector('.faq-a').style.display = 'none';
+        r.querySelector('.faq-sign').textContent = '+';
+      });
+      if (!wasOpen) {
+        row.classList.add('open');
+        row.querySelector('.faq-a').style.display = 'block';
+        row.querySelector('.faq-sign').textContent = '–';
+      }
+    }
+  </script>
+</body>
+</html>
